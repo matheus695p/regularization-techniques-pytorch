@@ -3,19 +3,28 @@
 # Types of neural network regularization in pytorch
 
 Este repo lo haré con el objetivo de tener implementado, varios métodos de
-regularización de redes neuronales, con el fin de prevenir overfitting en los
-entrenamientos
-
-### Documentación
-
-Documentación de los modulos con sphinx 
-
-```sh
-build/html/index.html
-```
+regularización, con el fin de prevenir overfitting en los
+entrenamientos de distintos tipos de redes neuronales.
 
 
-## Instalar las librerías necesarias para trabajar con deepAR en gluonts
+Voy a tener un ejemplo de:
+
+
+* LR scheduler
+* Early stopping
+* L1 regularization
+* L2 Regularization
+* Dropout
+* Batchnormalization
+
+
+Esto para hacerme más fácil la pega al hora de entrenar
+redes en pytorch. Haciendo más modulor mi código !
+
+
+
+## Instalar las librerías necesarias
+
 ```sh
 $ git clone https://github.com/matheus695p/pytorch-regularization.git
 $ cd pytorch-regularization
@@ -29,11 +38,21 @@ tree del proyecto
 ```
 
 
+### Documentación
+
+Documentación de los modulos con sphinx 
+
+```sh
+build/html/index.html
+```
+
+
+
 
 # Bibliografía
 
 
-[1]
+[1] https://debuggercafe.com/using-learning-rate-scheduler-and-early-stopping-with-pytorch/
 
 [2]
 
