@@ -1,21 +1,20 @@
 ![Build Status](https://www.repostatus.org/badges/latest/active.svg)
 
-# Types of neural network regularization in pytorch
+# Different types of neural network regularization techniques in pytorch
 
 Este repo lo haré con el objetivo de tener implementado, varios métodos de
-regularización, con el fin de prevenir overfitting en los
-entrenamientos de distintos tipos de redes neuronales.
+regularización, en la construcción de redes neuronales en pytorch
 
 
 Voy a tener un ejemplo de:
 
 
-* LR scheduler
-* Early stopping
+* LR scheduler --> torch.optim.lr_scheduler o en src/lr_scheduler.py
+* Early stopping --> src/early_stopping.py
 * L1 regularization
 * L2 Regularization
-* Dropout
-* Batchnormalization
+* Dropout --> torch.nn dropout 
+* Batchnormalization --> torch.nn BatchNorm1d
 
 
 Esto para hacerme más fácil la pega al hora de entrenar
@@ -58,9 +57,6 @@ en problemas de optimización, estás llegando al minimo, muevete mas lento para
 de esa zona (suena raro pero es asi XD, como la vida misma diria un bro). 
 
 
-
-
-
 ## Instalar las librerías necesarias
 
 ```sh
@@ -72,6 +68,40 @@ $ pip install -r requirements.txt
 tree del proyecto
 
 ```sh
+
+│   .gitignore
+│   README.md
+│
+├───codes
+│   ├───galaxies
+│   │       nn_galaxies.py
+│   │       preprocessing_galaxies.py
+│   │
+│   └───wine
+│           main_wine.py
+│
+├───data
+│       galaxies.csv
+│       glaxies_featured.csv
+│       winequality-red.csv
+│
+├───images
+│       pairplot.png
+│       targets_pairplot.png
+│
+├───models
+│       checkpoint.pt
+│
+└───src
+        datasets.py
+        early_stopping.py
+        galaxiesConfig.py
+        lr_scheduler.py
+        metrics.py
+        nn.py
+        preprocessing_module.py
+        visualizations.py
+        wineConfig.py
 
 ```
 
@@ -89,11 +119,11 @@ build/html/index.html
 
 # Bibliografía
 
+De donde me base para hacer los códigos: [sin copiar]
+
 
 [1] https://debuggercafe.com/using-learning-rate-scheduler-and-early-stopping-with-pytorch/
 
-[2]
+[2] https://pytorch.org/tutorials/recipes/recipes/defining_a_neural_network.html
 
-[3]
-
-[4]
+[3] https://pytorch.org/tutorials/beginner/blitz/neural_networks_tutorial.html
