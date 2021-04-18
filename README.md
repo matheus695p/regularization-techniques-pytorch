@@ -164,7 +164,14 @@ src/nn.py
 
 # Batch Normalization
 
-Batch Normalization es easy peasy solo hay que agregarlo como un paso en el fordward de la red
+Batch Normalization es easy peasy solo hay que agregarlo como un paso en el fordward de la red.
+
+Ojo con el orden de las capas zii:
+
+
+**Wx + b --> batch norm --> función de activación --> dropout ** sin cagarla ver [8]
+
+
 
 ```sh
 src/nn.py
@@ -253,3 +260,5 @@ De donde me base para hacer los códigos: [sin copiar]
 [6] https://www.jeremyjordan.me/nn-learning-rate/
 
 [7] https://arxiv.org/abs/1702.04283
+
+[8] https://stackoverflow.com/questions/39691902/ordering-of-batch-normalization-and-dropout#:~:text=Dropout%20is%20meant%20to%20block,passing%20information%20through%20normalization%20statistics.
