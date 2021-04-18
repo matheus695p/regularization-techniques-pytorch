@@ -228,7 +228,6 @@ La idea detrás de este tipo de regularización es reducir el valor de los pará
   <img src="./images/l1_l2.jpg">
 </p>
 
-
 ## Weight decay
 
 Esta técnica podríamos decir que es idéntica a la regularización L2, pero aplicada en otro punto. En lugar de introducir la penalización como un sumando en la función de coste, la añadimos como un término extra en la fórmula de actualización de los pesos.
@@ -271,6 +270,19 @@ Agregar al optimizador nomás
 optimizer = torch.optim.Adam(model.parameters(), lr=1e-4, weight_decay=1e-5)
 ```
 
+# Data Augmentation
+
+Tratandose de data tabular, se pueden usar diferentes técnicas de data augmentation, para balancear clases aumentar data de entrenamiento y por tanto convirtiendose en una técnica de regularización:
+
+Algunos de los métodos que se pueden probar son:
+
+
+* Smote [Synthetic Minority Oversampling Technique] o Smogn [Synthetic Minority Over-Sampling Technique for Regression with Gaussian Noise]
+* VAE's [Variational Autoencoders]
+* GAN's [Generative adversarial neural networks]
+
+
+Esto lo dejaré en otro repo ...
 
 
 # Setiar ambiente
