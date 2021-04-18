@@ -2,7 +2,7 @@
 
 # Different types of neural network regularization techniques in pytorch
 
-Este repo lo haré con el objetivo de tener implementado, varios métodos de regularización, en la construcción de redes neuronales en pytorch. Durante mucho tiempo, mi excusa para usar tensorflow y no pasarme a los grafos dinámicos era que las técnicas de regularización de pytorch eran re manuales, no existián y me daba flojera tener que hacerlas, en particular los learning rate schedulers y el early stopping, cuando lo quería prototipar rápido algo [un prototipado que se pasaba a productivo] y sacarme el cacho de programar regularizadores, este repo lo hago porque la excusa es bastante mala y es tiempo a empezar a asumir que pytorch ha crecido caleta y es momento de ponerse al día.
+Este repo lo haré con el objetivo de tener implementado, varios métodos de regularización, en la construcción de redes neuronales en pytorch. Durante mucho tiempo, mi excusa para usar tensorflow, y no pasarme a los grafos dinámicos, era que las técnicas de regularización de pytorch eran re manuales, no existián y me daba flojera tener que hacerlas, en particular los learning rate schedulers y el early stopping, cuando lo que quería prototipar rápido [un prototipo que se pasaba a productivo] y sacarse el cacho de programar regularizadores. Este repo lo hago porque la excusa es bastante **mala** y es tiempo a empezar a asumir que pytorch ha crecido caleta y es momento de ponerse al día.
 
 
 <p align="center">
