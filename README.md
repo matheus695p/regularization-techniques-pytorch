@@ -150,6 +150,15 @@ En el caso de las galaxias nos sirvió para sacar un checkpoint.pt en la época 
 
 # Dropout
 
+Activar y desactivar aleatoreamente neuronas para que la red aprenda a generalizar mejor.
+
+
+Ojo ziii:
+
+
+**W1 * x1 + b1 --> batch norm --> función de activación --> dropout --> W2 * x2 + b2 .... ** sin cagarla ver [8]
+
+
 Dropout es easy peasy solo hay que agregarlo como un paso en el fordward de la red
 
 ```sh
@@ -164,12 +173,17 @@ src/nn.py
 
 # Batch Normalization
 
+Para facilitar el aprendizaje, normalmente normalizamos los valores iniciales de nuestros parámetros inicializándolos con media cero y varianza unitaria [normalizar o estandarizar]. A medida que avanza el entrenamiento y actualizamos los parámetros en diferentes grados [backprop], perdemos esta normalización y/o estandarización, lo que ralentiza el entrenamiento y amplifica los cambios a medida que la red se vuelve más profunda.
+
+El batch normalization restablece estas normalizaciones para cada batch y los cambios también se propagan a través del fordward. Al hacer que la normalización sea parte de la arquitectura del modelo, podemos utilizar tasas de aprendizaje más altas y prestar menos atención a los parámetros de inicialización, es re útil.
+
+
 Batch Normalization es easy peasy solo hay que agregarlo como un paso en el fordward de la red.
 
 Ojo con el orden de las capas zii:
 
 
-**Wx + b --> batch norm --> función de activación --> dropout ** sin cagarla ver [8]
+**W1 * x1 + b1 --> batch norm --> función de activación --> dropout --> W2 * x2 + b2 .... ** sin cagarla ver [8]
 
 
 
