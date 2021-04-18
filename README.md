@@ -11,11 +11,10 @@ Voy a tener un ejemplo de:
 
 * LR scheduler --> torch.optim.lr_scheduler o en src/lr_scheduler.py
 * Early stopping --> src/early_stopping.py
-* L1 regularization
-* L2 Regularization
 * Dropout --> torch.nn dropout 
 * Batchnormalization --> torch.nn BatchNorm1d
-
+* L1 regularization
+* L2 Regularization
 
 Esto para hacerme más fácil la pega al hora de entrenar
 redes en pytorch. Haciendo más modulor mi código !
@@ -92,6 +91,21 @@ Según [7] la útilización de schedulers ciclicos permité una mejor exploraci�
 
 
 # Early Stopping
+
+Un enfoque para resolver para encontrar un buen modelo es tratar el número de épocas de entrenamiento como un hiperparámetro y entrenar el modelo varias veces con valores diferentes, luego seleccionar el número de épocas que dan como resultado el mejor rendimiento en el  conjunto de datos de test. Este es el enfoque más **gil**, dado que se requiere entrenar y descartar múltiples modelos por mucho rato. Esto es computacionalmente ineficiente lleva mucho tiempo y paja, especialmente para modelos grandes.
+
+El concepto de early stopping lo dice todo xdd, para el entrenamiento cuando tu loss empiece a decaer [ver imagen] 
+
+<p align="center">
+  <img src="./images/early stopping.png">
+</p>
+
+
+Una de las excusas que me ponía para no usar pytorch, era siempre esta, wn me da paja construir el early stopping por mi cuenta, tensorflow lo tiene listo, creo que esto era muy mala excusa, dado que no era tan complejo y las ventajas son caleta más.
+
+```zh
+src/early_stopping.py
+```
 
 
 
