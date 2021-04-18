@@ -19,12 +19,42 @@ Voy a tener un ejemplo de:
 Esto para hacerme más fácil la pega al hora de entrenar
 redes en pytorch. Haciendo más modulor mi código !
 
-# Optimizer
+# Contexto:
 
-Antes de empezar, con los regularizadores, analytics in diamag saco hace re poco [enero 2021] un super buen post sobre los optimizadores implementados en pytorch
+Voy a usar data publica de un desafío de kaggle de clasificación de galaxias para hacer las pruebas y construir en src/ una serie de módulos que me hagan rapido
+el entrenamiento de redes en pytorch, teniendo en cuenta su regularización:
 
 
-Yo últimamente me he decaído por el Adamax, me ha resultado bastante bueno comparado con el que siempre usaba que era Adam
+* https://data.galaxyzoo.org/  [tabla 2]
+
+
+En kaggle, hay varias implementaciones en keras y tensorflow, pero ninguna en pytorch, llegan a una accuracy de 85 % en la data tabular.
+
+
+* https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge/code
+
+# Preprocessing
+
+
+Con el fin de no llegar y usar la data, agrego un poco de características, pasando por polynomial features, exponential y log features, reduzco la cantidad de características por correlación pearson y me quedó con por ejemplo, si dos columans tienen alta correlación, me quedo con una sola columna y boto la otra. Con esto de originalmente 7 features quedo en 20 features y 3 targets [el one-hot-encoder] de las 3 clases de galaxias que hay. Finalmente antes de entrenar estandarizo en vez de normalizar, dado los features polinomiales que metí (si no pierde sentido hacer lo otro). Esto es entregado, a redes neuronales, para probar distintas técnicas de regularización.
+
+```zh
+codes/galaxies/preprocessing_galaxies.py
+
+```
+
+
+## Optimizer
+
+Antes de empezar, con los regularizadores de la red, analytics in diamag saco hace re poco [enero 2021] un super buen post sobre los optimizadores implementados en pytorch
+
+
+Yo últimamente me he decaído por el Adamax, me ha resultado bastante bueno comparado con el que siempre usaba que era Adam (adptative momentum) o Nadam (nesterov adptative momentum), pero esto es cuestión de prueba y error nomás, ocupar el que te guste más nomás.
+
+
+<p align="center">
+  <img src="./images/adamax.png">
+</p>
 
 
 <p align="center">
