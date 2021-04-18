@@ -102,13 +102,15 @@ El concepto de early stopping lo dice todo xdd, para el entrenamiento cuando tu 
 </p>
 
 
-Una de las excusas que me ponía para no usar pytorch, era siempre esta, wn me da paja construir el early stopping por mi cuenta, tensorflow lo tiene listo, creo que esto era muy mala excusa, dado que no era tan complejo y las ventajas son caleta más.
+Una de las excusas que me ponía para no usar pytorch, era siempre esta, wn me da paja construir el early stopping por mi cuenta, tensorflow lo tiene listo, creo que esto era muy mala excusa, dado que no era tan complejo y la ventajas de computar grafos dinánicamente es otra wea, el poder computar lo quieras durante el entrenamiento es otra cosa, me ha gustado bastante lo de grafos dinánimos.
+
 
 ```zh
 src/early_stopping.py
 ```
 
 # Dropout
+
 
 
 # Batch Normalization
