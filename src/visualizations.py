@@ -240,7 +240,7 @@ def torch_classification_visualizer(loss_stats, accuracy_stats):
 
 
 def plot_confusion_matrix(df_confusion, title='Matriz de confusion',
-                          cmap=plt.cm.gray_r):
+                          cmap=plt.cm.hot):
     """
     Visualizar la matriz de confusión de la clasificación
 
