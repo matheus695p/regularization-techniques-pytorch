@@ -92,7 +92,7 @@ Según [7] la útilización de schedulers ciclicos permité una mejor exploraci�
 
 # Early Stopping
 
-Un enfoque para resolver para encontrar un buen modelo es tratar el número de épocas de entrenamiento como un hiperparámetro y entrenar el modelo varias veces con valores diferentes, luego seleccionar el número de épocas que dan como resultado el mejor rendimiento en el  conjunto de datos de test. Este es el enfoque más **gil**, dado que se requiere entrenar y descartar múltiples modelos por mucho rato. Esto es computacionalmente ineficiente lleva mucho tiempo y paja, especialmente para modelos grandes.
+Un enfoque para encontrar un buen modelo de deep learning es tratar el número de épocas de entrenamiento como un hiperparámetro y entrenar el modelo varias veces con valores diferentes, luego seleccionar el número de épocas que dan como resultado el mejor rendimiento en el  conjunto de datos de test. Este es el enfoque más **gil**, dado que se requiere entrenar y descartar múltiples modelos por mucho rato. Esto es computacionalmente ineficiente lleva mucho tiempo y paja, especialmente para modelos grandes.
 
 El concepto de early stopping lo dice todo xdd, para el entrenamiento cuando tu loss empiece a aumentar o guarda un checkpoint con el modelo que tenga mejor validación [ver imagen], después usa ese modelo para hacer la predicción en test.
 
