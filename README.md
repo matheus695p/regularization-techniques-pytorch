@@ -156,7 +156,7 @@ Activar y desactivar aleatoreamente neuronas para que la red aprenda a generaliz
 Ojo ziii:
 
 
-**W1 * x1 + b1 --> batch norm --> función de activación --> dropout --> W2 * x2 + b2 .... ** sin cagarla ver [8]
+**W1 * x1 + b1 --> batch norm --> función de activación --> dropout --> W2 * x2 + b2 ....** sin cagarla ver [8]
 
 
 Dropout es easy peasy solo hay que agregarlo como un paso en el fordward de la red
@@ -183,7 +183,7 @@ Batch Normalization es easy peasy solo hay que agregarlo como un paso en el ford
 Ojo con el orden de las capas zii:
 
 
-**W1 * x1 + b1 --> batch norm --> función de activación --> dropout --> W2 * x2 + b2 .... ** sin cagarla ver [8]
+**W1 * x1 + b1 --> batch norm --> función de activación --> dropout --> W2 * x2 + b2 ....** sin cagarla ver [8]
 
 
 
