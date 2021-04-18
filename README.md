@@ -266,8 +266,12 @@ loss += l2_lambda * l2_reg
 Agregar al optimizador nomás
 
 
-``` { .py }
-optimizer = torch.optim.Adam(model.parameters(), lr=1e-4, weight_decay=1e-5)
+```{.py}
+
+from src.galaxiesConfig import arguments_parser
+args = arguments_parser()
+optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate, weight_decay=args.weight_decay)
+
 ```
 
 # Data Augmentation
