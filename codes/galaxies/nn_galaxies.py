@@ -123,7 +123,10 @@ print(model)
 # función de costos
 criterion = torch.nn.CrossEntropyLoss(weight=class_weights.to(device))
 # optimizador
-optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
+
+# optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
+optimizer = torch.optim.Adamax(model.parameters(), lr=args.learning_rate)
+
 
 # callbacks [uno de torch optim y el otro por mi]
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
