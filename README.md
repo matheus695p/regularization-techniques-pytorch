@@ -139,13 +139,39 @@ Una de las excusas que me ponía para no usar pytorch, era siempre esta, wn me d
 src/early_stopping.py
 ```
 
+En el caso de las galaxias nos sirvió para sacar un checkpoint.pt en la época 12 de entrenamiento, que es donde se obtuvo un menor loss de validación.
+
+
+<p align="center">
+  <img src="./images/training_loss.png">
+</p>
+
+
+
 # Dropout
+
+Dropout es easy peasy solo hay que agregarlo como un paso en el fordward de la red
+
+```sh
+src/nn.py
+```
+
+<p align="center">
+  <img src="./images/dropout.png">
+</p>
 
 
 
 # Batch Normalization
 
+Batch Normalization es easy peasy solo hay que agregarlo como un paso en el fordward de la red
 
+```sh
+src/nn.py
+```
+<p align="center">
+  <img src="./images/batchnormalization.jpg">
+</p>
 
 
 
