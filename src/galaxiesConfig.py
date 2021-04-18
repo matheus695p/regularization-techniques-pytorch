@@ -30,6 +30,7 @@ def arguments_parser():
     parser.add_argument('--lr-scheduler', type=bool, default=True)
     parser.add_argument('--early-stopping', type=bool, default=True)
     parser.add_argument('--random-state', type=int, default=20)
+    parser.add_argument('--weight_decay', type=float, default=10e-5)
 
     args = parser.parse_args()
     return args
