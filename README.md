@@ -2,8 +2,12 @@
 
 # Different types of neural network regularization techniques in pytorch
 
-Este repo lo haré con el objetivo de tener implementado, varios métodos de
-regularización, en la construcción de redes neuronales en pytorch
+Este repo lo haré con el objetivo de tener implementado, varios métodos de regularización, en la construcción de redes neuronales en pytorch. Durante mucho tiempo, mi excusa para usar tensorflow y no pasarme a los grafos dinámicos era que las técnicas de regularización de pytorch eran re manuales, no existián y me daba flojera tener que hacerlas, en particular los learning rate schedulers y el early stopping, cuando lo quería prototipar rápido algo [un prototipado que se pasaba a productivo] y sacarme el cacho de programar regularizadores, este repo lo hago porque la excusa es bastante mala y es tiempo a empezar a asumir que pytorch ha crecido caleta y es momento de ponerse al día.
+
+
+<p align="center">
+  <img src="./images/pytorch_tf.png">
+</p>
 
 
 Voy a tener un ejemplo de:
@@ -13,8 +17,8 @@ Voy a tener un ejemplo de:
 * Early stopping --> src/early_stopping.py
 * Dropout --> torch.nn dropout 
 * Batchnormalization --> torch.nn BatchNorm1d
-* L1 regularization
-* L2 Regularization
+* L1 regularization, L2 Regularization y Weight decay
+* Data Augmentation [un pequeño parrafo, no es el interes de este repo]
 
 Esto para hacerme más fácil la pega al hora de entrenar
 redes en pytorch. Haciendo más modulor mi código !
@@ -195,8 +199,71 @@ src/nn.py
 </p>
 
 
+# L1 Regularization (Lazo), L2 Regularization (Ridge) y Weight decay
 
-## Instalar las librerías necesarias
+Hasta acá, las técnicas que más uso de regularización están implementadas, pero quedan otras dos, que son las menos usadas y solo desde mi experiencia, las que menos me han servido en los problemas que he resuelto.
+
+
+## L1 Regularization 
+
+Regularización L1: Agrega la suma de los valores absolutos de todos los pesos en el modelo a la función de costos. Reduce el coeficiente de la característica menos importante a cero, eliminando alguna característica y, por lo tanto, generalizando mejor.
+
+
+## L2 Regularization 
+
+La idea detrás de este tipo de regularización es reducir el valor de los parámetros para que sean pequeños. Esta técnica introduce un término adicional de penalización en la función de coste original (L), añadiendo a su valor la suma de los cuadrados de los parámetros (ω). La mala noticia es que este nuevo término puede ser alto; tanto que la red minimizaría la función de coste haciendo los parámetros muy cercanos a 0, lo que no sería nada conveniente. Es por ello que multiplicaremos ese sumando por una constante (λ) pequeña, cuyo valor escogeremos de forma arbitraria (0.1, 0.01, …).
+
+
+<p align="center">
+  <img src="./images/l1_l2.jpg">
+</p>
+
+
+## Weight decay
+
+Esta técnica podríamos decir que es idéntica a la regularización L2, pero aplicada en otro punto. En lugar de introducir la penalización como un sumando en la función de coste, la añadimos como un término extra en la fórmula de actualización de los pesos.
+
+
+## Implementación en pytorch
+
+
+**L1** 
+``` { .py }
+l1_lambda = 0.001
+
+# después en el loop agregar por epoca
+loss = criterion(outputs, labels)
+l1_norm = sum(p.abs().sum() for p in model.parameters())
+loss = loss + l1_lambda * l1_norm
+
+```
+
+
+**L2**
+``` { .py }
+l2_lambda = 0.01
+l2_reg = torch.tensor(0.)
+
+# después en el loop agregar
+for param in model.parameters():
+    l2_reg += torch.norm(param)
+loss += l2_lambda * l2_reg
+
+```
+
+
+**Weight decay**
+
+Agregar al optimizador nomás
+
+
+``` { .py }
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-4, weight_decay=1e-5)
+```
+
+
+
+# Setiar ambiente
 
 ```sh
 $ git clone https://github.com/matheus695p/pytorch-regularization.git
@@ -245,7 +312,7 @@ tree del proyecto
 ```
 
 
-### Documentación
+# Documentación
 
 Documentación de los modulos con sphinx 
 
@@ -276,3 +343,5 @@ De donde me base para hacer los códigos: [sin copiar]
 [7] https://arxiv.org/abs/1702.04283
 
 [8] https://stackoverflow.com/questions/39691902/ordering-of-batch-normalization-and-dropout#:~:text=Dropout%20is%20meant%20to%20block,passing%20information%20through%20normalization%20statistics.
+
+[9] https://ruder.io/optimizing-gradient-descent/
