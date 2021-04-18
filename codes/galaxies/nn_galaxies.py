@@ -245,7 +245,7 @@ y_pred_list = [a.squeeze().tolist() for a in y_pred_list]
 confusion_matrix_df = pd.DataFrame(confusion_matrix(
     y_test, y_pred_list)).rename(columns=idx2class, index=idx2class)
 
-plot_confusion_matrix(confusion_matrix_df)
+plot_confusion_matrix(confusion_matrix_df, cmap=plt.cm.hot)
 
 # reporte de clasificación
 print(classification_report(y_test, y_pred_list))
