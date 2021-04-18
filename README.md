@@ -37,6 +37,16 @@ En kaggle, hay varias implementaciones en keras y tensorflow, pero ninguna en py
 
 * https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge/code
 
+
+Las redes las tendré acá
+
+```zh
+codes/galaxies/nn_galaxies.py
+codes/galaxies/cnn_galaxies.py
+codes/time-series/lstm.py
+```
+
+
 # Preprocessing
 
 
@@ -274,9 +284,9 @@ $ pip install -r requirements.txt
 tree del proyecto
 
 ```sh
-
 │   .gitignore
 │   README.md
+│   requirements.txt
 │
 ├───codes
 │   ├───galaxies
@@ -292,8 +302,18 @@ tree del proyecto
 │       winequality-red.csv
 │
 ├───images
+│       adamax.png
+│       batchnormalization.jpg
+│       dropout.png
+│       early stopping.png
+│       l1_l2.png
+│       optimizers.png
 │       pairplot.png
+│       pytorch_tf.png
+│       schedulers.png
+│       schedulers1.png
 │       targets_pairplot.png
+│       training_loss.png
 │
 ├───models
 │       checkpoint.pt
@@ -308,7 +328,6 @@ tree del proyecto
         preprocessing_module.py
         visualizations.py
         wineConfig.py
-
 ```
 
 
