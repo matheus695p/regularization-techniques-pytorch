@@ -167,7 +167,7 @@ En el caso de las galaxias nos sirvió para sacar un checkpoint.pt en la época 
 Activar y desactivar aleatoreamente neuronas para que la red aprenda a generalizar mejor.
 
 
-Ojo ziii:
+Ojo orden:
 
 
 **W1 * x1 + b1 --> batch norm --> función de activación --> dropout --> W2 * x2 + b2 ....** sin cagarla ver [8]
