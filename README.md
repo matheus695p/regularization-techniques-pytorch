@@ -90,7 +90,7 @@ Esto significa que el modelo está empezando a sobreajustarse (memorizarse los d
 Entrenar una red neuronal grande mientras se usa una única tasa de aprendizaje estática es realmente peluo [los entrenamientos tiender a ser extramadamente ruidosos]. Aquí es donde ayuda tener un scheduler de tasas de aprendizaje, donde podemos disminuir gradualmente el valor de la tasa de aprendizaje de forma dinámica durante el entrenamiento, cumpliendo el criterio de ciertas condiciones. Hay muchas maneras de hacer esto torch.optim.lr_scheduler tiene muchas. Pero el método más utilizado es cuando la pérdida de validación no mejora durante algunas épocas, lo que se llama el ReduceLrOnPlateu.
 
 
-Digamos que observamos que la pérdida de validación no ha disminuido durante **alpha** épocas consecutivas. Entonces hay una gran probabilidad de que el modelo comience a estancarse y no avanzar hacía otros mínimos. En ese caso, podemos comenzar a disminuir la tasa de aprendizaje, digamos, en un factor de **teta**. Podemos continuar con esto durante un cierto número de épocas. Cuando estamos seguros de que la tasa de aprendizaje es tan baja que el modelo no aprenderá nada, entonces podemos detener el entrenamiento. Esto es clasiquisimo en problemas de optimización, estás llegando al minimo, muevete mas lento para no alejarte de esa zona (suena raro pero es asi XD, como la vida misma diria un amigo). 
+Digamos que observamos que la pérdida de validación no ha disminuido durante **alpha** épocas consecutivas. Entonces hay una gran probabilidad de que el modelo comience a estancarse y no avanzar hacía otros mínimos. En ese caso, podemos comenzar a disminuir la tasa de aprendizaje, digamos, en un factor de **teta**. Podemos continuar con esto durante un cierto número de épocas. Cuando estamos seguros de que la tasa de aprendizaje es tan baja que el modelo no aprenderá nada, entonces podemos detener el entrenamiento. Esto es clasiquisimo en problemas de optimización, estás llegando al minimo, muevete mas lento para no alejarte de esa zona.
 
 
 <p align="center">
@@ -136,9 +136,9 @@ Según [7] la útilización de schedulers ciclicos permité una mejor exploraci�
 
 # Early Stopping
 
-Un enfoque para encontrar un buen modelo de deep learning es tratar el número de épocas de entrenamiento como un hiperparámetro y entrenar el modelo varias veces con valores diferentes, luego seleccionar el número de épocas que dan como resultado el mejor rendimiento en el  conjunto de datos de test. Este es el enfoque más **gil**, dado que se requiere entrenar y descartar múltiples modelos por mucho rato. Esto es computacionalmente ineficiente lleva mucho tiempo y paja, especialmente para modelos grandes.
+Un enfoque para encontrar un buen modelo de deep learning es tratar el número de épocas de entrenamiento como un hiperparámetro y entrenar el modelo varias veces con valores diferentes, luego seleccionar el número de épocas que dan como resultado el mejor rendimiento en el  conjunto de datos de test. Este es el enfoque más **computacionalmente ineficiente**, dado que se requiere entrenar y descartar múltiples modelos por mucho tiempo, especialmente para modelos grandes.
 
-El concepto de early stopping lo dice todo xdd, para el entrenamiento cuando tu loss empiece a aumentar o guarda un checkpoint con el modelo que tenga mejor validación [ver imagen], después usa ese modelo para hacer la predicción en test.
+El concepto de early stopping lo dice, para el entrenamiento cuando tu loss empiece a aumentar o guarda un checkpoint con el modelo que tenga mejor validación [ver imagen], después usa ese modelo para hacer la predicción en test.
 
 
 <p align="center">
@@ -146,7 +146,7 @@ El concepto de early stopping lo dice todo xdd, para el entrenamiento cuando tu 
 </p>
 
 
-Una de las excusas que me ponía para no usar pytorch, era siempre esta, wn me da paja construir el early stopping por mi cuenta, tensorflow lo tiene listo, creo que esto era muy mala excusa, dado que no era tan complejo y la ventajas de computar grafos dinánicamente es otra wea, el poder computar lo quieras durante el entrenamiento es otra cosa, me ha gustado bastante lo de grafos dinánimos.
+Una de las excusas que me ponía para no usar pytorch, era siempre esta, no tenia early stopping implementado, y habría que hacerlo por mi cuenta, tensorflow lo tiene listo, creo que esto era muy mala excusa, dado que no era tan complejo y la ventajas de computar grafos dinánicamente hace mucho más flexible durante el entrenamiento.
 
 
 ```zh
@@ -194,7 +194,7 @@ El batch normalization restablece estas normalizaciones para cada batch y los ca
 
 Batch Normalization es easy peasy solo hay que agregarlo como un paso en el fordward de la red.
 
-Ojo con el orden de las capas zii:
+Con este orden de capas ojo !:
 
 
 **W1 * x1 + b1 --> batch norm --> función de activación --> dropout --> W2 * x2 + b2 ....** sin cagarla ver [8]
