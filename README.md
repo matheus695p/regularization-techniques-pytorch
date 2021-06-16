@@ -131,7 +131,7 @@ Acá todos los schedulers implementados a la fecha en pytorch
                                                        verbose=False)
 
 
-Según [7] la útilización de schedulers ciclicos permité una mejor exploración de la función de costos, aumentando la probabilidad de descubrir mejores mínimos gloables, sin embargo, desde mis malas prácticas con tensorflow y keras, ReduceLROnPlateu, nos permité llegar más rápido a un mínimo local y hacer la convergencia más rápido, dado que soy un milenial, probaré esta implementación primero, pero dejo arriba como definiar cada uno de estas torch classes de optimizadores.
+Según [7] la útilización de schedulers ciclicos permité una mejor exploración de la función de costos, aumentando la probabilidad de descubrir mejores mínimos locales, sin embargo, desde mis malas prácticas con tensorflow y keras, ReduceLROnPlateu, nos permité llegar más rápido a un mínimo local y hacer la convergencia más rápido, dado que soy un milenial, probaré esta implementación primero, pero dejo arriba como definiar cada uno de estas torch classes de optimizadores.
 
 
 # Early Stopping
