@@ -225,7 +225,7 @@ La idea detrás de este tipo de regularización es reducir el valor de los pará
 
 
 <p align="center">
-  <img src="./images/l1_l2.jpg">
+  <img src="./images/l1_l2.png">
 </p>
 
 ## Weight decay
